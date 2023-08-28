@@ -1,0 +1,1339 @@
+{
+  "world": {
+    "name": "world",
+    "address": null,
+    "class_hash": "0x1527b232cbd77c7f021fdc129339d7623edfd9a9c79a1b9add29c9064961497",
+    "abi": [
+      {
+        "type": "impl",
+        "name": "World",
+        "interface_name": "dojo::world::IWorld"
+      },
+      {
+        "type": "struct",
+        "name": "core::array::Span::<core::felt252>",
+        "members": [
+          {
+            "name": "snapshot",
+            "type": "@core::array::Array::<core::felt252>"
+          }
+        ]
+      },
+      {
+        "type": "struct",
+        "name": "core::array::Span::<core::array::Span::<core::felt252>>",
+        "members": [
+          {
+            "name": "snapshot",
+            "type": "@core::array::Array::<core::array::Span::<core::felt252>>"
+          }
+        ]
+      },
+      {
+        "type": "enum",
+        "name": "core::bool",
+        "variants": [
+          {
+            "name": "False",
+            "type": "()"
+          },
+          {
+            "name": "True",
+            "type": "()"
+          }
+        ]
+      },
+      {
+        "type": "interface",
+        "name": "dojo::world::IWorld",
+        "items": [
+          {
+            "type": "function",
+            "name": "component",
+            "inputs": [
+              {
+                "name": "name",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::starknet::class_hash::ClassHash"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "register_component",
+            "inputs": [
+              {
+                "name": "class_hash",
+                "type": "core::starknet::class_hash::ClassHash"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "system",
+            "inputs": [
+              {
+                "name": "name",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::starknet::class_hash::ClassHash"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "register_system",
+            "inputs": [
+              {
+                "name": "class_hash",
+                "type": "core::starknet::class_hash::ClassHash"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "uuid",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::integer::u32"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "emit",
+            "inputs": [
+              {
+                "name": "keys",
+                "type": "core::array::Array::<core::felt252>"
+              },
+              {
+                "name": "values",
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "execute",
+            "inputs": [
+              {
+                "name": "system",
+                "type": "core::felt252"
+              },
+              {
+                "name": "calldata",
+                "type": "core::array::Array::<core::felt252>"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "entity",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "keys",
+                "type": "core::array::Span::<core::felt252>"
+              },
+              {
+                "name": "offset",
+                "type": "core::integer::u8"
+              },
+              {
+                "name": "length",
+                "type": "core::integer::u32"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "set_entity",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "keys",
+                "type": "core::array::Span::<core::felt252>"
+              },
+              {
+                "name": "offset",
+                "type": "core::integer::u8"
+              },
+              {
+                "name": "value",
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "entities",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "index",
+                "type": "core::felt252"
+              },
+              {
+                "name": "length",
+                "type": "core::integer::u32"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "(core::array::Span::<core::felt252>, core::array::Span::<core::array::Span::<core::felt252>>)"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "set_executor",
+            "inputs": [
+              {
+                "name": "contract_address",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "executor",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "delete_entity",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "keys",
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "origin",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "caller_system",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "is_owner",
+            "inputs": [
+              {
+                "name": "address",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "target",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "grant_owner",
+            "inputs": [
+              {
+                "name": "address",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "target",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "revoke_owner",
+            "inputs": [
+              {
+                "name": "address",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "target",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "is_writer",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "system",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "grant_writer",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "system",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "type": "function",
+            "name": "revoke_writer",
+            "inputs": [
+              {
+                "name": "component",
+                "type": "core::felt252"
+              },
+              {
+                "name": "system",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "type": "constructor",
+        "name": "constructor",
+        "inputs": [
+          {
+            "name": "executor",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::WorldSpawned",
+        "kind": "struct",
+        "members": [
+          {
+            "name": "address",
+            "type": "core::starknet::contract_address::ContractAddress",
+            "kind": "data"
+          },
+          {
+            "name": "caller",
+            "type": "core::starknet::contract_address::ContractAddress",
+            "kind": "data"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::ComponentRegistered",
+        "kind": "struct",
+        "members": [
+          {
+            "name": "name",
+            "type": "core::felt252",
+            "kind": "data"
+          },
+          {
+            "name": "class_hash",
+            "type": "core::starknet::class_hash::ClassHash",
+            "kind": "data"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::SystemRegistered",
+        "kind": "struct",
+        "members": [
+          {
+            "name": "name",
+            "type": "core::felt252",
+            "kind": "data"
+          },
+          {
+            "name": "class_hash",
+            "type": "core::starknet::class_hash::ClassHash",
+            "kind": "data"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::StoreSetRecord",
+        "kind": "struct",
+        "members": [
+          {
+            "name": "table",
+            "type": "core::felt252",
+            "kind": "data"
+          },
+          {
+            "name": "keys",
+            "type": "core::array::Span::<core::felt252>",
+            "kind": "data"
+          },
+          {
+            "name": "offset",
+            "type": "core::integer::u8",
+            "kind": "data"
+          },
+          {
+            "name": "value",
+            "type": "core::array::Span::<core::felt252>",
+            "kind": "data"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::StoreDelRecord",
+        "kind": "struct",
+        "members": [
+          {
+            "name": "table",
+            "type": "core::felt252",
+            "kind": "data"
+          },
+          {
+            "name": "keys",
+            "type": "core::array::Span::<core::felt252>",
+            "kind": "data"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::world::world::Event",
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "WorldSpawned",
+            "type": "dojo::world::world::WorldSpawned",
+            "kind": "nested"
+          },
+          {
+            "name": "ComponentRegistered",
+            "type": "dojo::world::world::ComponentRegistered",
+            "kind": "nested"
+          },
+          {
+            "name": "SystemRegistered",
+            "type": "dojo::world::world::SystemRegistered",
+            "kind": "nested"
+          },
+          {
+            "name": "StoreSetRecord",
+            "type": "dojo::world::world::StoreSetRecord",
+            "kind": "nested"
+          },
+          {
+            "name": "StoreDelRecord",
+            "type": "dojo::world::world::StoreDelRecord",
+            "kind": "nested"
+          }
+        ]
+      }
+    ]
+  },
+  "executor": {
+    "name": "executor",
+    "address": null,
+    "class_hash": "0x6ac7478eec43bd66aacf829f58dcb4694d0e241dc52b332f64de2b736c24137",
+    "abi": [
+      {
+        "type": "impl",
+        "name": "Executor",
+        "interface_name": "dojo::executor::IExecutor"
+      },
+      {
+        "type": "struct",
+        "name": "core::array::Span::<core::felt252>",
+        "members": [
+          {
+            "name": "snapshot",
+            "type": "@core::array::Array::<core::felt252>"
+          }
+        ]
+      },
+      {
+        "type": "interface",
+        "name": "dojo::executor::IExecutor",
+        "items": [
+          {
+            "type": "function",
+            "name": "execute",
+            "inputs": [
+              {
+                "name": "class_hash",
+                "type": "core::starknet::class_hash::ClassHash"
+              },
+              {
+                "name": "calldata",
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "type": "function",
+            "name": "call",
+            "inputs": [
+              {
+                "name": "class_hash",
+                "type": "core::starknet::class_hash::ClassHash"
+              },
+              {
+                "name": "entrypoint",
+                "type": "core::felt252"
+              },
+              {
+                "name": "calldata",
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::array::Span::<core::felt252>"
+              }
+            ],
+            "state_mutability": "view"
+          }
+        ]
+      },
+      {
+        "type": "event",
+        "name": "dojo::executor::executor::Event",
+        "kind": "enum",
+        "variants": []
+      }
+    ]
+  },
+  "systems": [
+    {
+      "name": "init",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo_werewolf::systems::init::init::ContractState"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "core::integer::u32"
+        }
+      ],
+      "class_hash": "0x5fba7057327e025e64ec6d09fb294a83f4011cd8375229b83ebd5c8d4536bcb",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "core::integer::u32"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::systems::init::init::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "join",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo_werewolf::systems::join::join::ContractState"
+        },
+        {
+          "name": "game_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "player_address",
+          "type": "core::starknet::contract_address::ContractAddress"
+        },
+        {
+          "name": "nick_name",
+          "type": "core::felt252"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x2911088b448574f0fd7fdf3410e5911e9097268c5a3991bc5c2aa952a526fb7",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "game_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "player_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "nick_name",
+              "type": "core::felt252"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::systems::join::join::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo_werewolf::systems::start::start::ContractState"
+        },
+        {
+          "name": "game_id",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x6bff71fc5d5eb8b04ce00ebb471aa6830f076721cb832251220d9a4a284770b",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "game_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::systems::start::start::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo_werewolf::systems::vote::vote::ContractState"
+        },
+        {
+          "name": "game_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "target_address",
+          "type": "core::starknet::contract_address::ContractAddress"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x1133cf6f47b2764f04142d7896fc6ad6866a1a28a1aa35b564d4f8790754570",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "game_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "target_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::systems::vote::vote::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "library_call",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo::world::library_call::ContractState"
+        },
+        {
+          "name": "class_hash",
+          "type": "core::starknet::class_hash::ClassHash"
+        },
+        {
+          "name": "entrypoint",
+          "type": "core::felt252"
+        },
+        {
+          "name": "calladata",
+          "type": "core::array::Span::<core::felt252>"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "core::array::Span::<core::felt252>"
+        }
+      ],
+      "class_hash": "0x5c3f8568adfef908692f02fcfcc80e303c237183fe864f6cff8c34d29d3f130",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::felt252>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::felt252>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            },
+            {
+              "name": "entrypoint",
+              "type": "core::felt252"
+            },
+            {
+              "name": "calladata",
+              "type": "core::array::Span::<core::felt252>"
+            },
+            {
+              "name": "_ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "core::array::Span::<core::felt252>"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo::world::library_call::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    }
+  ],
+  "contracts": [],
+  "components": [
+    {
+      "name": "GameState",
+      "members": [
+        {
+          "name": "game_id",
+          "type": "u32",
+          "key": true
+        },
+        {
+          "name": "player_count",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "is_end",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "is_started",
+          "type": "bool",
+          "key": false
+        }
+      ],
+      "class_hash": "0x732a1d44c024e3666a235570229665a5a83d85b37c502085a022da18aa74c25",
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "function",
+          "name": "size",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::integer::u32"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "enum",
+          "name": "core::bool",
+          "variants": [
+            {
+              "name": "False",
+              "type": "()"
+            },
+            {
+              "name": "True",
+              "type": "()"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "schema",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::array::Array::<(core::felt252, core::felt252, core::bool)>"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::components::game_state::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "Player",
+      "members": [
+        {
+          "name": "game_id",
+          "type": "u32",
+          "key": true
+        },
+        {
+          "name": "player_address",
+          "type": "ContractAddress",
+          "key": true
+        },
+        {
+          "name": "role",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "is_dead",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "nick_name",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "votes_num",
+          "type": "u32",
+          "key": false
+        }
+      ],
+      "class_hash": "0x9dbf6a40f7f79078a9643d80d3187a25daacf30402d501bcd86b9dcd151862",
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "function",
+          "name": "size",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::integer::u32"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "enum",
+          "name": "core::bool",
+          "variants": [
+            {
+              "name": "False",
+              "type": "()"
+            },
+            {
+              "name": "True",
+              "type": "()"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "schema",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::array::Array::<(core::felt252, core::felt252, core::bool)>"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::components::player::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "RoundState",
+      "members": [
+        {
+          "name": "game_id",
+          "type": "u32",
+          "key": true
+        },
+        {
+          "name": "rounds",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "day_state",
+          "type": "u8",
+          "key": false
+        }
+      ],
+      "class_hash": "0x3877ffe71480f81c8a65ca188afda14c63af7ef7d184061c17bd048ce0ce911",
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "function",
+          "name": "size",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::integer::u32"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "enum",
+          "name": "core::bool",
+          "variants": [
+            {
+              "name": "False",
+              "type": "()"
+            },
+            {
+              "name": "True",
+              "type": "()"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "schema",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::array::Array::<(core::felt252, core::felt252, core::bool)>"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::components::round_state::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    }
+  ]
+}
