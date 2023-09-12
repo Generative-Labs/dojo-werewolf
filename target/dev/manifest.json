@@ -535,7 +535,7 @@
   "executor": {
     "name": "executor",
     "address": null,
-    "class_hash": "0x6ac7478eec43bd66aacf829f58dcb4694d0e241dc52b332f64de2b736c24137",
+    "class_hash": "0x7b79892389a0c9fe22f74b1d28a9e9185c7b6d2c60cc1df814053e47e9078c2",
     "abi": [
       {
         "type": "impl",
@@ -624,7 +624,7 @@
           "type": "core::integer::u32"
         }
       ],
-      "class_hash": "0x5fba7057327e025e64ec6d09fb294a83f4011cd8375229b83ebd5c8d4536bcb",
+      "class_hash": "0x406220b95830ac1f88189bcfd42e8da57f3bcbf919d85f2654c5fb8f77c32ab",
       "dependencies": [],
       "abi": [
         {
@@ -714,8 +714,12 @@
           "type": "core::felt252"
         }
       ],
-      "outputs": [],
-      "class_hash": "0x2911088b448574f0fd7fdf3410e5911e9097268c5a3991bc5c2aa952a526fb7",
+      "outputs": [
+        {
+          "type": "core::integer::u32"
+        }
+      ],
+      "class_hash": "0x1a566d8c23aa14e914479b5124fea35a672a949dbafee7112d198b03b73442e",
       "dependencies": [],
       "abi": [
         {
@@ -782,7 +786,11 @@
               "type": "dojo::world::Context"
             }
           ],
-          "outputs": [],
+          "outputs": [
+            {
+              "type": "core::integer::u32"
+            }
+          ],
           "state_mutability": "view"
         },
         {
@@ -806,7 +814,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x6bff71fc5d5eb8b04ce00ebb471aa6830f076721cb832251220d9a4a284770b",
+      "class_hash": "0x4fcbf387301523d8d28c2b730f63618151f307deacde382d265546f65c92d4e",
       "dependencies": [],
       "abi": [
         {
@@ -877,23 +885,27 @@
       ]
     },
     {
-      "name": "vote",
+      "name": "kill",
       "inputs": [
         {
           "name": "self",
-          "type": "@dojo_werewolf::systems::vote::vote::ContractState"
+          "type": "@dojo_werewolf::systems::kill::kill::ContractState"
         },
         {
           "name": "game_id",
           "type": "core::integer::u32"
         },
         {
-          "name": "target_address",
-          "type": "core::starknet::contract_address::ContractAddress"
+          "name": "player_index",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "target_index",
+          "type": "core::integer::u32"
         }
       ],
       "outputs": [],
-      "class_hash": "0x1133cf6f47b2764f04142d7896fc6ad6866a1a28a1aa35b564d4f8790754570",
+      "class_hash": "0x5e623ab96ce6d844eca16a66ca9528a18fab6f7288348294db6bf7b6d232499",
       "dependencies": [],
       "abi": [
         {
@@ -948,8 +960,111 @@
               "type": "core::integer::u32"
             },
             {
-              "name": "target_address",
+              "name": "player_index",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "target_index",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "dojo_werewolf::systems::kill::kill::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo_werewolf::systems::vote::vote::ContractState"
+        },
+        {
+          "name": "game_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "player_index",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "target_index",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x710b2a26de27785264a691e90862b495cd7da62647cd96214f2359b532e791a",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
               "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "game_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "player_index",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "target_index",
+              "type": "core::integer::u32"
             },
             {
               "name": "ctx",
@@ -1109,9 +1224,14 @@
           "name": "is_started",
           "type": "bool",
           "key": false
+        },
+        {
+          "name": "winer",
+          "type": "u8",
+          "key": false
         }
       ],
-      "class_hash": "0x732a1d44c024e3666a235570229665a5a83d85b37c502085a022da18aa74c25",
+      "class_hash": "0x4c0678624d8b3fb50dadfda247a85ff901b037145811ad636d447a21a722236",
       "abi": [
         {
           "type": "function",
@@ -1177,9 +1297,14 @@
           "key": true
         },
         {
+          "name": "index",
+          "type": "u32",
+          "key": true
+        },
+        {
           "name": "player_address",
           "type": "ContractAddress",
-          "key": true
+          "key": false
         },
         {
           "name": "role",
@@ -1202,7 +1327,7 @@
           "key": false
         }
       ],
-      "class_hash": "0x9dbf6a40f7f79078a9643d80d3187a25daacf30402d501bcd86b9dcd151862",
+      "class_hash": "0x1756d7d8f7a152af675418963b2b782e99c9e15d79e87b72f0b811f10abf9b6",
       "abi": [
         {
           "type": "function",
