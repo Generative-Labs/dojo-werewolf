@@ -1,6 +1,6 @@
 use starknet::ContractAddress;
 
-#[derive(Component, Copy, Drop, Serde, SerdeLen)]
+#[derive(Model, Copy, Drop, Serde)]
 struct GameState{
     #[key]
     game_id:u32,
@@ -12,7 +12,7 @@ struct GameState{
 
 //role 0 common people
 //role 1 wolfman
-#[derive(Component, Copy, Drop, Serde, SerdeLen)]
+#[derive(Model, Copy, Drop, Serde)]
 struct Player{
     #[key]
     game_id: u32,
@@ -27,7 +27,7 @@ struct Player{
 
 // day_state 0 night
 // day_state 1 daytime
-#[derive(Component, Copy, Drop, Serde, SerdeLen)]
+#[derive(Model, Copy, Drop, Serde)]
 struct RoundState{
     #[key]
     game_id: u32,
